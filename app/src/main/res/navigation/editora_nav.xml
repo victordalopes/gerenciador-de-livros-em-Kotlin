@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/editora_nav"
+    app:startDestination="@id/editoraListFragment">
+
+    <fragment
+        android:id="@+id/editoraListFragment"
+        android:name="com.example.livrosemkotlin.fragments.list.EditoraListFragment"
+        android:label="Listar"
+        tools:layout="@layout/fragment_editora_list" >
+        <action
+            android:id="@+id/action_editoraListFragment_to_editoraAddFragment"
+            app:destination="@id/editoraAddFragment" />
+        <action
+            android:id="@+id/action_editoraListFragment_to_editoraUpdateFragment"
+            app:destination="@id/editoraUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editoraAddFragment"
+        android:name="com.example.livrosemkotlin.fragments.add.EditoraAddFragment"
+        android:label="Adicionar"
+        tools:layout="@layout/fragment_editora_add" >
+        <action
+            android:id="@+id/action_editoraAddFragment_to_editoraListFragment"
+            app:destination="@id/editoraListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editoraUpdateFragment"
+        android:name="com.example.livrosemkotlin.fragments.update.EditoraUpdateFragment"
+        android:label="fragment_editora_update"
+        tools:layout="@layout/fragment_editora_update" >
+        <action
+            android:id="@+id/action_editoraUpdateFragment_to_editoraListFragment"
+            app:destination="@id/editoraListFragment" />
+        <argument android:name="currentEditora"
+            app:argType="com.example.livrosemkotlin.beans.Editora" />
+    </fragment>
+</navigation>

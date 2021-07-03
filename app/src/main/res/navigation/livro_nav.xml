@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_livro"
+    app:startDestination="@id/livroListFragment">
+
+    <fragment
+        android:id="@+id/livroListFragment"
+        android:name="com.example.livrosemkotlin.fragments.list.LivroListFragment"
+        android:label="Listar"
+        tools:layout="@layout/fragment_livro_list" >
+        <action
+            android:id="@+id/action_livroListFragment_to_livroAddFragment"
+            app:destination="@id/livroAddFragment" />
+        <action
+            android:id="@+id/action_livroListFragment_to_livroUpdateFragment"
+            app:destination="@id/livroUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/livroAddFragment"
+        android:name="com.example.livrosemkotlin.fragments.add.LivroAddFragment"
+        android:label="Adicionar"
+        tools:layout="@layout/fragment_livro_add" >
+        <action
+            android:id="@+id/action_livroAddFragment_to_livroListFragment"
+            app:destination="@id/livroListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/livroUpdateFragment"
+        android:name="com.example.livrosemkotlin.fragments.update.LivroUpdateFragment"
+        android:label="Atualizar"
+        tools:layout="@layout/fragment_livro_update" >
+        <action
+            android:id="@+id/action_livroUpdateFragment_to_livroListFragment"
+            app:destination="@id/livroListFragment" />
+        <argument
+            android:name="currentLivro"
+            app:argType="com.example.livrosemkotlin.beans.Livro" />
+    </fragment>
+</navigation>
